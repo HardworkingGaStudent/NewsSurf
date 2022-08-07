@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const pageController = require("./controllers/pages/PageController");
 const userController = require("./controllers/users/UserController");
+const authMiddleware = require("./middleware/authenticate");
 
 const app = express();
 const port = 3000;
@@ -33,6 +34,9 @@ app.post("/users/register", userController.register);
 app.get("/users/login", userController.loginForm);
 app.post("/users/login", userController.login);
 app.post("/users/logout", userController.logout);
+
+app.get("/users/profile", authMiddleware.isAuthenticated, userController.showProfile);
+
 
 // Express listener
 app.listen(port, async () => {

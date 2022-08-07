@@ -3,7 +3,9 @@ const userModel = require("../../models/user/user");
 const userValidation = require("../validation/UserValidation");
 
 const userController = {
+
     registrationForm: (req, res) => { res.render("pages/register"); },
+
     register: async (req, res) => {
         /**
          * Registration steps to create a user's record in the DB (collection name: User):
@@ -45,10 +47,15 @@ const userController = {
         // Return action: redirect users to the login page
         res.redirect("/users/login");
     },
+
     loginForm: (req, res) => { res.render("pages/login"); },
-    login: (req, res) => {
+
+    login: async (req, res) => {
         /**
-         * 
+         * Steps for a user to log in:
+         * #1. retrieve the user's email from the DB
+         * #2. hash and compare the stored hash in the DB
+         * #3. create a session and log the user in
          */
         // set variables for validation
         const userValidatedResults = req.body;
@@ -69,8 +76,45 @@ const userController = {
             return;
         };
 
-
+        // log the user in
+        req.session.regenerate(function (err) {
+            if (err) {
+                res.send("unable to regenerate session");
+                return;
+            }
+            // store user info in session to ensure page load does not happen before saving session
+            req.session.user = user.email;
+            req.session.save(function (err) {
+                if (err) {
+                    res.send("unable to save session");
+                    return;
+                };
+                res.redirect("/users/profile");
+            });
+        });
     },
+
+    showDashboard: (req, res) => {
+        res.send("Welcome to your Dashboard!");
+    },
+
+    showProfile: async (req, res) => {
+        /**
+         * Get user data from DB using session user
+         */
+         let user = null;
+
+         try {
+            user = await userModel.findOne({ email: req.session.user });
+         } catch (err) {
+            console.log(err);
+            res.redirect("/users/login");
+            return;
+         };
+         console.log(user);
+         res.render("pages/profile", {user});
+    },
+
     logout: (req, res) => {}
 
 };
