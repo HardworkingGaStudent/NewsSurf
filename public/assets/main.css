@@ -1,20 +1,85 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #263238;
+    /* background-color: #5F7A87; */
+    /* background-color: #1A2327; */
 }
+
 .TopNav {
-    position: fixed;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row; /*row is default*/
+    align-items: center; 
     width: 100%;
+    background-color: #1A2327;
+    color: #FFFFFF;
+    height: 58px;
 }
+
 .TopNav_LeftNav {
     flex: 1;
-    background-color: aquamarine;
-    justify-content: start;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }
+
 .TopNav_RightNav {
     flex: 1;
-    background-color: blue;
-    justify-content: end;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }
+
+.RegistrationForm, .LoginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    width: 500px;
+    text-align: center;
+    border-radius: 50px;
+    /* background-color: #263238; */
+    background-color: #1A2327;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#registration-form_title, #login-form_title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #E6CE55;
+}
+
+#registration-form_contents, #login-form_contents {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    margin-left: 40px;
+    margin-right: 40px;
+    column-gap: 50px;
+}
+
+#registration-form_contents, #login-form_contents label {
+    font-size: 30px;
+    color: #5F7A87;
+}
+
+/* 
+colour pallettes
+dark blue #1A2327
+Blue-grey #263238
+gold #E6CE55
+red #DC2C96
+green #9DFF00
+white #FFFFFF
+orange #FD971F 
+purple #B78AFF
+light blue #2EDCFF
+grey blue comments #5F7A87
+*/
