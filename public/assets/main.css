@@ -2,6 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Newsreader', serif;
+    background-color: #F7F9FA;
+    background-color: #EFF1F2;
 }
 
 /* Nav bar styling */
@@ -9,19 +11,20 @@ html, body {
     background-color: #263238;
 }
 
-.navbar-custom i {
-    color: #FFFFFF;
-}
-
-.navbar-custom a {
+.navbar-custom i, .navbar-custom a {
     color: #FFFFFF;
 }
 
 .dropdown-menu a {
-    color: #1A2327;
+    color: #263238;
 }
 
-/* Registration form styling */
+.navbar-custom h4 {
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+/* Forms styling */
 .RegistrationForm, .LoginForm {
     display: flex;
     justify-content: center;
@@ -29,23 +32,27 @@ html, body {
     align-items: center;
 }
 
-.card-container {
+.user-container {
+    display: flex;
+    flex-direction: column;
     width: 500px;
     text-align: center;
-    border-radius: 50px;
-    background-color: #1A2327;
+    border-radius: 5px;
+    background-color: #FFFFFF;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#registration-form_title, #login-form_title {
+#registration-form_title, #login-form_title, #profile-form_title {
+    display: flex;
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    color: #E6CE55;
+    color: #263238;
 }
 
-#registration-form_contents, #login-form_contents {
+#registration-form_contents, #login-form_contents, #profile-form_contents {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -55,25 +62,32 @@ html, body {
     column-gap: 50px;
 }
 
-#registration-form_contents, #login-form_contents label {
+#registration-form_contents, #login-form_contents, #profile-form_contents label {
     font-size: 30px;
     color: #5F7A87;
 }
 
-
-.Profile {
+/* Profile & Dashboard page styling */
+.Profile, .Dashboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 50px 500px 50px 500px;
+    margin: 50px 600px 50px 600px;
 }
 
-#profile-form_title {
+#profile-page_welcome, #dashboard-page_welcome {
     display: flex;
     flex: 1;
     justify-content: flex-start;
-    color: #E6CE55;
+    color: #263238;
 } 
+
+.profile-container, .dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
+}
 
 /* 
 colour pallettes

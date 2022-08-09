@@ -1,19 +1,52 @@
 <%- include("../partials/head"); %>
 
 <body>
+<<<<<<< HEAD
   <header class="TopNav sticky-top">
     <div class="TopNav_LeftNav">
       <div>
         <button>
           <svg xmlns="/assets/icons/menu-burger"></svg>
+=======
+
+  <!-- Top nav bar -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-custom navbar-expand-lg navbar-default">
+      <div class="container">
+
+        <!-- Dropdown icon -->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars fa-xl"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/users/login">Login</a></li>
+            <li><a class="dropdown-item" href="/users/register">Register</a></li>
+            <li><a class="dropdown-item" href="/users/dashboard">Dashboard</a></li>
+            <li><a class="dropdown-item" href="/users/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Create a post</a></li>
+          </ul>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+          <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-newspaper fa-xl"> NewsSurf</i>
+          </a>
+        </div>
+
+        <!-- Nav bar contents -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+>>>>>>> feat(User): Add update feature to all User particulars (9 August 2022)
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link active" aria-current="page" href="#">Local</a>
-            <a class="nav-link" href="#">Coronavirus</a>
-            <a class="nav-link" href="#">Russian War</a>
-            <a class="nav-link disabled">Hello World</a>
+            <a class="nav-link active" aria-current="page" href="#"><h4>Home</h4></a>
+            <a class="nav-link active" aria-current="page" href="#"><h4>Local</h4></a>
+            <a class="nav-link" href="#"><h4>Coronavirus</h4></a>
+            <a class="nav-link" href="#"><h4>Russian War</h4></a>
+            <a class="nav-link disabled"><h4>Hello World</h4></a>
           </div>
         </div>
 
@@ -30,7 +63,8 @@
       </div>
     </nav>
   
-    <!-- <nav class="navbar navbar-dark bg-dark">
+    <!-- dun know how to do offcanvas slide-out page
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Offcanvas dark navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">

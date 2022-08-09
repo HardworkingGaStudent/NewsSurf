@@ -24,19 +24,23 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false, httpOnly: false, maxAge: 7200000 }
 }));
+app.use(authMiddleware.setAuthUserVar);
 
+// Generic routes
 app.get('/', pageController.homePage);
-app.get("/contacts", pageController.contactsPage);
 
 // User routes
 app.get("/users/register", userController.registrationForm);
 app.post("/users/register", userController.register);
+
 app.get("/users/login", userController.loginForm);
 app.post("/users/login", userController.login);
 app.post("/users/logout", userController.logout);
 
 app.get("/users/profile", authMiddleware.isAuthenticated, userController.showProfile);
+app.post("/users/profile", authMiddleware.isAuthenticated, userController.updateProfile);
 
+app.get("/users/dashboard", authMiddleware.isAuthenticated, userController.showDashboard);
 
 // Express listener
 app.listen(port, async () => {
