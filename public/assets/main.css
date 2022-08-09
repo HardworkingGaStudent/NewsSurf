@@ -1,37 +1,27 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Newsreader', serif;
+}
+
+/* Nav bar styling */
+.navbar-custom {
     background-color: #263238;
-    /* background-color: #5F7A87; */
-    /* background-color: #1A2327; */
 }
 
-.TopNav {
-    display: flex;
-    flex-direction: row; /*row is default*/
-    align-items: center; 
-    /* align-content: space-around; */
-    width: 100%;
-    background-color: #1A2327;
+.navbar-custom i {
     color: #FFFFFF;
-    height: 58px;
 }
 
-.TopNav_LeftNav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+.navbar-custom a {
+    color: #FFFFFF;
 }
 
-.TopNav_RightNav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+.dropdown-menu a {
+    color: #1A2327;
 }
 
+/* Registration form styling */
 .RegistrationForm, .LoginForm {
     display: flex;
     justify-content: center;
@@ -43,7 +33,6 @@ html, body {
     width: 500px;
     text-align: center;
     border-radius: 50px;
-    /* background-color: #263238; */
     background-color: #1A2327;
     justify-content: center;
     margin-top: 20px;
@@ -84,7 +73,7 @@ html, body {
     flex: 1;
     justify-content: flex-start;
     color: #E6CE55;
-}
+} 
 
 /* 
 colour pallettes
