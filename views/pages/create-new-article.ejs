@@ -1,0 +1,48 @@
+<%- include("../partials/header"); %>
+
+<div class="Article">
+  <div id="article-page_welcome">
+    <h1>What's on your mind today, <%= user.firstName %>?</h1>
+  </div>
+
+  <div class="article-container">
+    <div id="article-form_title">
+      <h1>New Article</h1>
+    </div>
+
+    <form id="profile-form_contents" method="POST" action="/articles/create-new-article" enctype="multipart/form-data">
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="genre">Genre</label>
+        <input list="genres" name="genre" id="genre" class="form-control" />
+        <datalist id="genres">
+          <option value="Business"></option>
+          <option value="Economy"></option>
+          <option value="Health"></option>
+          <option value="Sports"></option>
+        </datalist>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="message">Content</label>
+        <textarea class="form-control" id="message" rows="10" name="message"></textarea>
+      </div>
+
+      <div>
+        <label for="article-img">Upload an image</label>
+        <input type="file" name="article-img" class="form-control" />
+      </div>
+
+      <div>
+        <button type="submit" class="m-3">Create!</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<%- include("../partials/footer"); %>
