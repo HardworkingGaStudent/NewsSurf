@@ -1,10 +1,38 @@
 <%- include("../partials/header"); %>
 
 <div class="Home">
-    <div id="home-page_welcome">
-        <h1>Latest</h1>
+  <div id="home-page_welcome">
+    <h1>Latest</h1>
+  </div>
+  <hr />
+
+  <% createdArticles.forEach(item => { %>
+
+    <div class="home-page_card m-3">
+        <div class="home-page_card_text m-3">
+            <div id="home-page_card_title">
+                <div>
+                    <h1 class="me-3"><%= item.title %> </h1>
+                </div>
+                <div>
+                    <a href="/articles/genre/<%= item.genre %>" class="btn btn-light"><%= item.genre %> </a>
+                </div>
+            </div>
+        
+            <div id="home-page_card_description">
+                <p><%= item.content.substring(0,500) %>... </p>
+                <a href="/articles/articleid/<%= item._id %>" class="btn btn-secondary">Read more</a>
+            </div>
+        </div>
+
+        <div class="home-page_card_images m-3">
+            <div id="home-page_card_thumbnail">
+                <img src="/uploads/<%= item.imgName %> ">
+            </div>
+        </div>
     </div>
 
+  <% }) %>
 </div>
 
 <%- include("../partials/footer"); %>
