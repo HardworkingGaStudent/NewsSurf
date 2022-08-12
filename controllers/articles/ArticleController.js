@@ -73,6 +73,21 @@ const articleController = {
             res.send("article cannot be deleted");
         };
         res.redirect("/users/dashboard");
+    },
+
+    getArticleByGenre: async (req, res) => {
+        /**
+         * Queries the DB for article objects by genre (to get the ObjectId)
+         * Similar to how home page is being rendered
+         */
+        try {
+            const genre = req.params.genre;
+            const createdArticles = await articleModel.find({"genre": genre});
+            res.render("pages/genre", {genre, createdArticles});
+        } catch (err) {
+            res.send("error 4000");
+            return;
+        }
     }
 };
 module.exports = articleController;
