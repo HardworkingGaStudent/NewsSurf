@@ -5,7 +5,10 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tags: [String],
+    genre: {
+        type: String,
+        required: true
+    },
     author: {
         type: String,
         required: true
@@ -13,6 +16,9 @@ const articleSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true
+    },
+    imgName: {
+        type: String
     },
     date: {
         type: Date,

@@ -58,6 +58,7 @@ app.get("/users/dashboard", authMiddleware.isAuthenticated, userController.showD
 // Article routes
 app.get("/articles/create-new-article", authMiddleware.isAuthenticated, articleController.createArticleForm);
 app.post("/articles/create-new-article", authMiddleware.isAuthenticated, upload.single("article-img"), articleController.createArticle);
+app.get("/articles/:articleId", articleController.getArticle);
 
 // Express listener
 app.listen(port, async () => {

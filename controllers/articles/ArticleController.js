@@ -26,33 +26,35 @@ const articleController = {
          * #2. Create a DB record for the article
          * Finally, return user to the article's view URL
          */
-        let user = null;
+        const user = await userModel.findOne({ email: req.session.user });
+        const userId = user._id.toHexString(); // _id field returns: new ObjectId("62ef8bedf6cd6747dcbfb312")
+
         try {
-            user = await userModel.findOne({ email: req.session.user });
+            const createdArticle = await articleModel.create({
+                title: req.body.title,
+                genre: req.body.genre,
+                author: userId,
+                content: req.body.content,
+                imgName: req.file.filename
+            });
+
+            // Return user to article page
+            res.redirect(`/articles/${createdArticle._id}`);
+
         } catch (err) {
             console.log(err);
-            res.redirect("/users/login");
+            res.send("failed to create article");
             return;
-        };
-        
-        console.log("this is user object: ", user);
-
-        console.log(JSON.stringify(req.file))
-        console.log("file uploaded successfully")
-        const imgFilePath = req.file.path.split("/").slice(1,3).join("/")
-        console.log('this is req.body: ', req.body);
-        return res.redirect("imgFilePath")
-        
-        // try {
-        //     await articleModel.create({
-        //     });
-        // } catch (err) {
-        //     console.log(err);
-        //     res.send("failed to create article");
-        // };
-
-        // Return action: redirect user to published article page
-        // res.render("/articles/_UUID") ?? not sure how to structure this
+        };        
     },
+
+    getArticle: async (req, res) => {
+        /**
+         * Displays the article page. Fetch article object from DB (articles), then
+         * pass it as props into the rendering page
+         */
+        const createdArticle = await articleModel.findById(req.params.articleId);
+        res.render("pages/article", {createdArticle});
+    }
 };
 module.exports = articleController;

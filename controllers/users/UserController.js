@@ -32,12 +32,13 @@ const userController = {
         
         // #3: Create a DB record for the user (once above validations passed)
         try {
-            await userModel.create({
+            const createdUser = await userModel.create({
                 firstName: userValidatedResults.firstName,
                 lastName: userValidatedResults.lastName,
                 email: userValidatedResults.email,
                 hash: hash
             });
+            // console.log(createdUser._id);
         } catch (err) {
             console.log(err);
             res.send("failed to create user");
