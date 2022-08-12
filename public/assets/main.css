@@ -67,7 +67,7 @@ html, body {
     color: #5F7A87;
 }
 
-/* Profile, Dashboard, Article page styling */
+/* Profile, Dashboard, Article forms styling */
 .Profile, .Dashboard, .Article {
     display: flex;
     flex-direction: column;
@@ -89,23 +89,55 @@ html, body {
     flex-direction: row;
 }
 
+.form-control {
+    background: #F9F9F9;
+}
+
+/* Article page styling */
 .article-container {
     display: flex;
     flex-direction: column;
     /* width: 500px; */
-    text-align: center;
     border-radius: 5px;
     background-color: #FFFFFF;
     justify-content: center;
     margin-top: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-.form-control {
-    background: #F9F9F9;
+.article-metadata {
+    display: flex;
+    margin: 30px 30px 30px 30px;
+    flex-direction: column;
+    text-align: start;
 }
 
-/* Article page styling */
+#article-title {
+    display: flex;
+    justify-content: start;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #263238;
+}
+
+#article-img {
+    display: flex;
+    justify-content: center;
+}
+
+#article-content {
+    text-align: start;
+    margin: 0px 30px 30px 30px;
+}
+
+
+
+/* #article-metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 35px;
+    margin-right: 35px;
+} */
 
 /* 
 colour pallettes

@@ -39,7 +39,7 @@ const articleController = {
             });
 
             // Return user to article page
-            res.redirect(`/articles/${createdArticle._id}`);
+            res.redirect(`/articles/articleid/${createdArticle._id}`);
 
         } catch (err) {
             console.log(err);
@@ -50,11 +50,11 @@ const articleController = {
 
     getArticle: async (req, res) => {
         /**
-         * Displays the article page. Fetch article object from DB (articles), then
-         * pass it as props into the rendering page
+         * Displays the article page. Fetch the article object from DB (articles), then pass it as props into the rendering page
          */
         const createdArticle = await articleModel.findById(req.params.articleId);
-        res.render("pages/article", {createdArticle});
+        const userAuthor = await userModel.findById(createdArticle.author);
+        res.render("pages/article", {createdArticle, userAuthor});
     }
 };
 module.exports = articleController;
