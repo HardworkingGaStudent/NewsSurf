@@ -12,8 +12,8 @@ const authMiddleware = require("./middleware/authenticate");
 // Config properties
 const app = express();
 const port = process.env.PORT || 3000;
-// const connectionString = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.d73ns.mongodb.net/?retryWrites=true&w=majority`
-const connectionString = `mongodb://127.0.0.1:27017/NewsSurf`;
+const connectionString = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.xfyzdqw.mongodb.net/?retryWrites=true&w=majority`
+// const connectionString = `mongodb://127.0.0.1:27017/NewsSurf`;
 
 // set view engine
 app.set("view engine", "ejs");
