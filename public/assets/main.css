@@ -72,7 +72,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 50px 600px 50px 600px;
+    margin: 50px 200px 50px 200px;
 }
 
 #profile-page_welcome, #dashboard-page_welcome, #article-page_welcome {
@@ -141,6 +141,34 @@ html, body {
     flex-direction: row;
     justify-content: flex-start;
 }
+
+/* Home page styling */
+.home-page_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#home-page_card_title {
+    display: flex;
+    flex-direction: row;
+    row-gap: 10px;
+}
+
+#home-page_card_thumbnail img {
+    width: 100%;
+}
+
+.home-page_card_text, .home-page_card_images {
+    flex: 1;
+}
+
+/* #home-page_card_thumbnail img {
+    width: 100%;
+    display: block;
+} */
 
 /* 
 colour pallettes

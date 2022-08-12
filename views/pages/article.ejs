@@ -26,6 +26,11 @@
 
         <div id="article-content">
             <h3><%= createdArticle.content %></h3>
+
+            <% if (authUser == userAuthor.email ) { %>
+                <a href="/articles/articleid/<%= createdArticle._id %>/delete" class="btn btn-secondary">Delete Article</a>
+            <% } %> 
+
         </div>
 
     </div>

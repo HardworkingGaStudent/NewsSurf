@@ -1,5 +1,6 @@
 const userModel = require("../../models/user/user");
 const articleModel = require("../../models/article/article");
+const fs = require("fs");
 const upload = require("../../middleware/upload");
 
 const articleController = {
@@ -55,7 +56,47 @@ const articleController = {
          */
         const createdArticle = await articleModel.findById(req.params.articleId);
         const userAuthor = await userModel.findById(createdArticle.author);
+
         res.render("pages/article", {createdArticle, userAuthor});
+    },
+
+    deleteArticle: async (req,res) => {
+        /**
+         * Deletes the article. Fetches the article object from DB (to get ObjectId),
+         * executes mongoose delete
+         */
+        // console.log("inside deleteArticle");
+        const createdArticle = await articleModel.findById(req.params.articleId);
+        const createdArticleFileName = createdArticle.imgName;
+        // console.log("identified file to delte: " + createdArticleFileName);
+        const createdArticleId = createdArticle._id.toHexString();
+        try {
+            await articleModel.deleteOne({ _id: createdArticleId });
+            fs.unlink(`./public/uploads/${createdArticleFileName}`, (err) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                };
+            });
+        } catch (err) {
+            res.send("article cannot be deleted");
+        };
+        res.redirect("/users/dashboard");
+    },
+
+    getArticleByGenre: async (req, res) => {
+        /**
+         * Queries the DB for article objects by genre (to get the ObjectId)
+         * Similar to how home page is being rendered
+         */
+        try {
+            const genre = req.params.genre;
+            const createdArticles = await articleModel.find({"genre": genre});
+            res.render("pages/genre", {genre, createdArticles});
+        } catch (err) {
+            res.send("error 4000");
+            return;
+        }
     }
 };
 module.exports = articleController;
