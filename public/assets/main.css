@@ -68,7 +68,7 @@ html, body {
 }
 
 /* Profile, Dashboard, Article forms styling */
-.Profile, .Dashboard, .Article {
+.Profile, .Dashboard, .Article, .Home {
     display: flex;
     flex-direction: column;
     justify-content: center;
