@@ -1,20 +1,60 @@
 <%- include("../partials/head"); %>
 
 <body>
-  <header class="TopNav sticky-top">
-    <div class="TopNav_LeftNav">
-      <div>
-        <button>
-          <!-- <svg xmlns="/assets/icons/menu-burger"></svg> -->
-        </button>
-      </div>
-      <div><h2>Logo</h2></div>
-      <div><h1>Nav-Bar{different-topics}</h1></div>
-    </div>
 
-    <div class="TopNav_RightNav">
-      <div><h1>Search-bar</h1></div>
-      <div><h1>Dashboard</h1></div>
-      <div><h1>My-Profile</h1></div>
-    </div>
+  <!-- Top nav bar -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-custom navbar-expand-lg navbar-default">
+      <div class="container">
+
+        <!-- Dropdown icon -->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars fa-xl"></i>
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/users/login">Login</a></li>
+            <li><a class="dropdown-item" href="/users/register">Register</a></li>
+            <li><a class="dropdown-item" href="/users/dashboard">Dashboard</a></li>
+            <li><a class="dropdown-item" href="/users/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/articles/create-new-article">Create new article</a></li>
+          </ul>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+          <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-newspaper fa-xl"> NewsSurf</i>
+          </a>
+        </div>
+
+        <!-- Nav bar contents -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+        aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/"><h4>Home</h4></a>
+            <a class="nav-link active" aria-current="page" href="/"><h4>Local</h4></a>
+            <a class="nav-link" href="/"><h4>Coronavirus</h4></a>
+            <a class="nav-link" href="/"><h4>Russian War</h4></a>
+            <a class="nav-link disabled"><h4>Hello World</h4></a>
+          </div>
+        </div>
+
+        <!-- Nav bar search box -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+        
+      </div>
+    </nav>
   </header>

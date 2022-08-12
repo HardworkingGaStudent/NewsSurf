@@ -1,0 +1,34 @@
+<%- include("../partials/header"); %>
+
+<div class="Article">
+    
+    <div class="article-container">
+
+        <div class="article-metadata">
+            <div id="article-genre">
+                <a href="/articles/genre/<%= createdArticle.genre %>" class="btn btn-secondary"><%= createdArticle.genre %> </a>
+            </div>
+
+            <div id="article-title">
+                <h1><%= createdArticle.title %> </h1>
+            </div>
+
+            <div id="article-author">
+                By <b><%= userAuthor.firstName %> <%= userAuthor.lastName %> 
+            </div>
+
+            <hr>
+            <div id="article-img">
+                <img src="/uploads/<%= createdArticle.imgName %>">
+            </div>
+            <hr>
+        </div>
+
+        <div id="article-content">
+            <h3><%= createdArticle.content %></h3>
+        </div>
+
+    </div>
+</div>
+
+<%- include("../partials/footer"); %>

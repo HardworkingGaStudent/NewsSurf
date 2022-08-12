@@ -1,0 +1,29 @@
+<%- include("../partials/header"); %>
+
+<div class="Dashboard">
+  <div id="dashboard-page_welcome">
+    <h1>Welcome to your Dashboard!</h1>
+  </div>
+
+  <div id="dashboard-page_welcome" class="mt-5">
+    <h1>Your Posts</h1>
+  </div>
+  <hr>
+
+  <div class="card-container">
+    <% result.forEach(item => { %>
+
+    <div class="card m-3" style="width: 18rem;">
+      <img src="/uploads/<%= item.imgName %>" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><%= item.title %></h5>
+        <p class="card-text"><%= item.content.substring(0,100) %></p>
+        <a href="/articles/articleid/<%= item._id %>" class="btn btn-secondary">Read more</a>
+      </div>
+    </div>
+
+      <% }) %>
+  </div>
+</div>
+
+<%- include("../partials/footer"); %>

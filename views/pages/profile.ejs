@@ -2,12 +2,83 @@
 
 <div class="Profile">
     
-  <div id="profile-form_title">
-    <h1>Welcome back, <span style="color:#9DFF00"><%= user.firstName %></span>!</h1>
-    <img src="/public/icons/cat.png">
+  <div id="profile-page_welcome">
+    <h1>Welcome back, <%= user.firstName %>!</h1>
   </div>
 
-  <div id="empty-container">hello world</div>
+  <div class="profile-container">
+
+    <div class="user-container">
+
+      <div id="profile-form_title">
+        <h1>Your Particulars</h1>
+      </div>
+
+      <form id="profile-form_contents">
+        <fieldset disabled>
+
+        <div class="form-group mb-3">
+          <label for="disabledTextInput">First Name</label>
+          <input type="text" id="disabledTextInput" class="form-control" name="firstName" placeholder=<%= user.firstName %> />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="disabledTextInput">Last Name</label>
+          <input type="text" id="disabledTextInput" class="form-control" name="firstName" placeholder=<%= user.lastName %> />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="disabledTextInput">New Email</label>
+          <input type="text" id="disabledTextInput" class="form-control" name="firstName" placeholder=<%= user.email %> />
+        </div>
+      
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="user-container">
+
+      <div id="profile-form_title">
+        <h1>Update Credentials</h1>
+      </div>
+
+      <form id="profile-form_contents" method="POST" action="/users/profile">
+        
+        <div class="form-group mb-3">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" placeholder=<%= user.firstName %> />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" placeholder=<%= user.lastName %> />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" placeholder=<%= user.email %> />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="password">New Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password"/>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" class="form-control" name="confirmPassword" placeholder="Password"/>
+        </div>
+
+        <div>
+          <button type="submit" class="mb-3">Update</button>
+        </div>
+
+      </form>
+
+    </div>
+  
+  </div>
+  
 </div>
 
 <%- include("../partials/footer"); %>
