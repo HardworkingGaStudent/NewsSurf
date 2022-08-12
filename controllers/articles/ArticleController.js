@@ -55,7 +55,24 @@ const articleController = {
          */
         const createdArticle = await articleModel.findById(req.params.articleId);
         const userAuthor = await userModel.findById(createdArticle.author);
+
         res.render("pages/article", {createdArticle, userAuthor});
+    },
+
+    deleteArticle: async (req,res) => {
+        /**
+         * Deletes the article. Fetches the article object from DB (to get ObjectId),
+         * executes mongoose delete
+         */
+        // console.log("inside deleteArticle");
+        const createdArticle = await articleModel.findById(req.params.articleId);
+        const createdArticleId = createdArticle._id.toHexString();
+        try {
+            await articleModel.deleteOne({ _id: createdArticleId });
+        } catch (err) {
+            res.send("article cannot be deleted");
+        };
+        res.redirect("/users/dashboard");
     }
 };
 module.exports = articleController;
