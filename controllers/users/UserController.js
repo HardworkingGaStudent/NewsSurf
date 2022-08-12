@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const userModel = require("../../models/user/user");
 const userValidation = require("../validation/UserValidation");
+const articleModel = require("../../models/article/article");
 
 const userController = {
 
@@ -95,9 +96,27 @@ const userController = {
         });
     },
 
-    showDashboard: (req, res) => {
-        res.render("pages/dashboard");
-        // res.send("Welcome to your Dashboard!");
+    showDashboard: async (req, res) => {
+        /**
+         * Fetches all the user's posts from DB and summarizes it in one page:
+         * #1. Get user data(Object_id) from DB using session (from incoming request)
+         * #2. Use it as key to fetch all the articles that the user has authored
+         * #3. pass them as props into the dashboard pages
+         */
+        const user = await userModel.findOne({ email: req.session.user });
+        const userId = user._id.toHexString(); // _id field returns: new ObjectId("62ef8bedf6cd6747dcbfb312"
+        // console.log("userId is: "+userId);
+
+        try {
+            const userCreatedArticles = await articleModel.find({"author": userId}).exec();
+            result = JSON.parse(JSON.stringify(userCreatedArticles));
+            // console.log(result);
+            res.render("pages/dashboard", {result});
+        } catch (err) {
+            console.log(err);
+            res.send(err);
+            return;
+        };
     },
 
     showProfile: async (req, res) => {

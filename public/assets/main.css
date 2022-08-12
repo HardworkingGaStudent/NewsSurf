@@ -124,20 +124,23 @@ html, body {
     justify-content: center;
 }
 
+#article-img img {
+    height: 100%; 
+    width: 100%; 
+    display:block;
+}
+
 #article-content {
     text-align: start;
     margin: 0px 30px 30px 30px;
 }
 
-
-
-/* #article-metadata {
+.card-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    margin-left: 35px;
-    margin-right: 35px;
-} */
+    justify-content: flex-start;
+}
 
 /* 
 colour pallettes
