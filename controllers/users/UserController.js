@@ -178,7 +178,7 @@ const userController = {
     },
 
     logout: async (req, res) => {
-        req.session.user = null
+        req.session.user = null;
         req.session.save(function (err) {
             if (err) {
                 res.redirect('/users/login');
