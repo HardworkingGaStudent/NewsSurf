@@ -1,19 +1,25 @@
 # NewsSurf
-A simple web community for people to share articles
+A simple [web](https://newssurf.herokuapp.com/) community for people to share articles
 
-# MVP-1
 ## Features 
-- User login/authentication
-- Like
-- Comment
+- User: 
+  - Register
+  - Login/Logout
+  - Update Credentials
+- Articles: 
+  - Upload article (with images)
+  - Dashboard to view posts
+  - Delete article (author-specific)
 
 ## Schema
 ![Image](./db/Schema.drawio.png "icon")
 
 ## How to start MongoDB
-`sudo mongod --dbpath ~/data/db`
+`sudo mongod --dbpath ~/data/db` <br>
 `mongo`
 
 # Stack
-- FE: JavaScript (EJS)
-- BE: MongoDB, NodeJS
+- MongoDB
+- Express
+- EJS
+- NodeJS
