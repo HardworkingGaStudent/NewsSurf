@@ -18,18 +18,18 @@ A simple [web](https://newssurf.herokuapp.com/) community for people to share ar
 | Route Name | Path                                  | HTTP Verb | Action                                |
 | ---------- | ------------------------------------- | --------- | ------------------------------------- |
 | New        | /users/register                       | GET       | Show a new registration form          |
-| Create     | /users/register                       | POST      | Register new user                     |
 | New        | /users/login                          | GET       | Show a new login form                 |
-| Create     | /users/login                          | POST      | Create a login session                |
-| Destroy    | /users/logout                         | DELETE    | Destroys the current session          |
 | New        | /users/profile                        | GET       | Shows update credentials form         |
+| New        | /articles/create-new-article          | GET       | Shows create a new article            |
+| Create     | /users/register                       | POST      | Register new user                     |
+| Create     | /users/login                          | POST      | Create a login session                |
+| Create     | /articles/create-new-article          | POST      | Creates a new article, then redirects |
 | Update     | /users/profile                        | PUT       | Updates user credentials              |
 | Index      | /users/dashboard                      | GET       | Lists all user articles               |
-| New        | /articles/create-new-article          | GET       | Shows create a new article            |
-| Create     | /articles/create-new-article          | POST      | Creates a new article, then redirects |
-| Show       | /articles/articleid/:articleId        | GET       | Show info about a specific article    |
-| Destroy    | /articles/articleid/:articleId/delete | DELETE    | Deletes a specific article            |
 | Index      | /articles/genre/:genre                | GET       | Lists all articles by a certain genre |
+| Show       | /articles/articleid/:articleId        | GET       | Show info about a specific article    |
+| Destroy    | /users/logout                         | DELETE    | Destroys the current session          |
+| Destroy    | /articles/articleid/:articleId/delete | DELETE    | Deletes a specific article            |
 
 ## Schema
 
