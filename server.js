@@ -60,6 +60,8 @@ app.get("/articles/create-new-article", authMiddleware.isAuthenticated, articleC
 app.post("/articles/create-new-article", authMiddleware.isAuthenticated, upload.single("article-img"), articleController.createArticle);
 app.get("/articles/articleid/:articleId", articleController.getArticle);
 app.get("/articles/articleid/:articleId/delete", articleController.deleteArticle);
+app.get("/articles/articleid/:articleId/edit", articleController.editArticleForm);
+app.post("/articles/articleid/:articleId/edit", authMiddleware.isAuthenticated, upload.single("article-img"), articleController.editArticle);
 app.get("/articles/genre/:genre", articleController.getArticleByGenre);
 
 // Express listener
