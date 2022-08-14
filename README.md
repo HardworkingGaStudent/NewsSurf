@@ -35,6 +35,9 @@ A simple [web](https://newssurf.herokuapp.com/) community for people to share ar
 
 ![Image](./db/Schema.drawio.png "icon")
 
+## Improvements
+- Consider `comments`, `likes`, `paywalls` features
+
 ## How to start MongoDB
 
 `sudo mongod --dbpath ~/data/db` <br>
