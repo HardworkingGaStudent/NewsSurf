@@ -2,6 +2,7 @@ const userModel = require("../../models/user/user");
 const articleModel = require("../../models/article/article");
 const fs = require("fs");
 const upload = require("../../middleware/upload");
+const util = require("util");
 
 const articleController = {
     createArticleForm: async (req, res) => { 
@@ -29,6 +30,8 @@ const articleController = {
          */
         const user = await userModel.findOne({ email: req.session.user });
         const userId = user._id.toHexString(); // _id field returns: new ObjectId("62ef8bedf6cd6747dcbfb312")
+        console.log("this is req.body: ", req.body);
+        console.log("this is req.file: ", req.file);
 
         try {
             const createdArticle = await articleModel.create({
@@ -97,6 +100,48 @@ const articleController = {
             res.send("error 4000");
             return;
         }
-    }
+    },
+
+    editArticleForm: async (req, res) => {
+        /**
+         * Returns a form populated with the articleId's contents in an editable form
+         */
+        const createdArticle = await articleModel.findById(req.params.articleId);
+        const userAuthor = await userModel.findById(createdArticle.author);
+        
+        try {
+            res.render("pages/edit-article", {createdArticle, userAuthor});
+        } catch(err) {
+            res.send("error 4000");
+            return;
+        };
+    },
+
+    editArticle: async (req, res, next) => {
+        /**
+         * Queries the DB for the specific record, and updates it. Redirects user to the article
+         */
+        const articleId = { _id: req.params.articleId };
+        const user = await userModel.findOne({ email: req.session.user });
+        const userId = user._id.toHexString();
+
+        const update = {
+            title: req.body.title,
+            genre: req.body.genre,
+            author: userId,
+            content: req.body.content,
+            imgName: req.file.filename
+        };
+
+        try {
+            const updatedArticle = await articleModel.findOneAndUpdate(articleId, update);
+            res.redirect(`/articles/articleid/${updatedArticle._id}`);
+        } catch (err) {
+            console.log(err);
+            res.send("failed to update article");
+            return;
+        };
+
+    },
 };
 module.exports = articleController;
